@@ -4,6 +4,9 @@ services:
   db:
     image: mariadb
     restart: always
+    # volumes:
+    #   - container-volume:/var/lib/mysql
+    #   - ./app/dump.sql:/docker-entrypoint-initdb.d/dump.sql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: auctiondb
@@ -32,7 +35,7 @@ services:
 
   app:
     image: ncrmns/auctionappdb
-    # build: ./app/
+    # build: ./app
     ports: 
       - 1234:1234
     deploy:
@@ -43,3 +46,5 @@ services:
           memory: 100m
     depends_on:
       - db
+# volumes:
+#   container-volume:

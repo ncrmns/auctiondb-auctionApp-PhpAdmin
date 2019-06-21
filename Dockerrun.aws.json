@@ -46,18 +46,8 @@
       ],
       "essential": true,
       "image": "mariadb",
-      "memory": 128,
-      "mountPoints": [
-        {
-          "containerPath": "/var/lib/mysql",
-          "sourceVolume": "Container-Volume"
-        },
-        {
-          "containerPath": "/docker-entrypoint-initdb.d/dump.sql",
-          "sourceVolume": "_AppDump_Sql"
-        }
-      ],
       "name": "db",
+      "memory": 128,
       "portMappings": [
         {
           "containerPort": 3306,
@@ -67,18 +57,5 @@
     }
   ],
   "family": "",
-  "volumes": [
-    {
-      "host": {
-        "sourcePath": "container-volume"
-      },
-      "name": "Container-Volume"
-    },
-    {
-      "host": {
-        "sourcePath": "./app/dump.sql"
-      },
-      "name": "_AppDump_Sql"
-    }
-  ]
+  "volumes": []
 }
